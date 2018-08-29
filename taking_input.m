@@ -1,0 +1,10 @@
+disp(magic(5));
+a = input('Enter your number: ');
+disp(a);
+b = 20;
+disp(a<b);
+disp(a>b);
+disp(a&&b);
+disp(a==b);
+disp(a~=b);
+disp(a||b);

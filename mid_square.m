@@ -4,10 +4,9 @@ count =0;
 while var > 0
     count=count+1;
     len=0;
-    len = int16(len);
-    temp = int16(var);
+    temp =var;
     while(temp >0)
-        temp = temp/10;
+        temp = floor(temp/10);
         len=len+1;
     end
     var=var^2;
@@ -16,9 +15,11 @@ while var > 0
         var = strcat('0',var);
     end
     lenv=length(var);
-    lenv = int16(len);
-    if(bitand(lenv,1))
-        var=var(var/2-len/2,var/2+len-len/2)
-    end        
-    break;
+    lenv=floor(lenv/2);
+    var_temp=var(lenv:lenv+floor(len/2));
+    if(length(var_temp) ~= len)
+        var_temp=var(lenv-(len-length(var_temp)):lenv+floor(len/2));
+    end
+    var = str2num(var_temp)
+    dum=input('hlt');
 end
